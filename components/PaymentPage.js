@@ -175,7 +175,7 @@ const PaymentPage = ({ username }) => {
                                     type="button"
                                     disabled={paymentform?.name?.length < 3 || paymentform?.message?.length < 4}
                                     className={`
-                                    text-white w-full md:w-1/4 font-medium rounded-lg text-lg px-4 py-2.5 text-center leading-5
+                                    text-white cursor-pointer w-full md:w-1/4 font-medium rounded-lg text-lg px-4 py-2.5 text-center leading-5
                                        focus:outline-none focus:ring-4
                                        transition-all duration-300
                                      ${paymentform?.name?.length < 3 || paymentform?.message?.length < 4 || paymentform?.amount?.length < 1
@@ -192,7 +192,7 @@ const PaymentPage = ({ username }) => {
                         {/* or choose form these amounts */}
                         <div className="flex gap-2 mt-5 w-full">
                             <button onClick={() => pay(1000)} className={`
-                                    text-white w-full md:w-1/4 font-medium rounded-lg text-lg px-2 py-2 md:py-4 text-center leading-5
+                                    text-white cursor-pointer w-full md:w-1/4 font-medium rounded-lg text-lg px-2 py-2 md:py-4 text-center leading-5
                                        focus:outline-none focus:ring-4
                                        transition-all duration-300
                                      ${paymentform?.name?.length < 3 || paymentform?.message?.length < 4
@@ -201,7 +201,7 @@ const PaymentPage = ({ username }) => {
                                 }
                                      `}>Pay ₹10</button>
                             <button onClick={() => pay(2000)} className={`
-                                    text-white w-full md:w-1/4 font-medium rounded-lg text-lg px-2 py-2 md:py-4 text-center leading-5
+                                    text-white cursor-pointer w-full md:w-1/4 font-medium rounded-lg text-lg px-2 py-2 md:py-4 text-center leading-5
                                        focus:outline-none focus:ring-4
                                        transition-all duration-300
                                      ${paymentform?.name?.length < 3 || paymentform?.message?.length < 4
@@ -210,7 +210,7 @@ const PaymentPage = ({ username }) => {
                                 }
                                      `}>Pay ₹20</button>
                             <button onClick={() => pay(3000)} className={`
-                                    text-white w-full md:w-1/4 font-medium rounded-lg text-lg px-2 py-2 md:py-4 text-center leading-5
+                                    text-white cursor-pointer w-full md:w-1/4 font-medium rounded-lg text-lg px-2 py-2 md:py-4 text-center leading-5
                                        focus:outline-none focus:ring-4
                                        transition-all duration-300
                                      ${paymentform?.name?.length < 3 || paymentform?.message?.length < 4
