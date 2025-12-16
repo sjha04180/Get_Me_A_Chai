@@ -11,9 +11,20 @@ export const initiate = async (amount, to_username, paymentform) => {
 
     // fetch the secret of the user who is receiving the payment
     const user = await User.findOne({ username: to_username }).exec()
-    const secret = user?.razorpaySecret || process.env.RAZORPAY_KEY_SECRET || ''
+    const keyId =
+        user?.razorpayId || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || ''
 
-    var instance = new Razorpay({ key_id: user.razorpayId, key_secret: secret })
+    const keySecret =
+        user?.razorpaySecret || process.env.RAZORPAY_KEY_SECRET || ''
+
+    if (!keyId || !keySecret) {
+        throw new Error("Razorpay credentials not configured")
+    }
+
+    var instance = new Razorpay({
+        key_id: keyId,
+        key_secret: keySecret,
+    })
 
     instance.orders.create({
         amount: 50000,

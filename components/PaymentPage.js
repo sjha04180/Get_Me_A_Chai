@@ -55,8 +55,10 @@ const PaymentPage = ({ username }) => {
     const getData = async () => {
         let u = await fetchUser(username)
         setcurrentUser(u)
+        console.log(u)
         let dbpayments = await fetchPayments(username)
         setPayments(dbpayments)
+         console.log(dbpayments)
     }
 
     const pay = async (amount) => {
@@ -69,7 +71,7 @@ const PaymentPage = ({ username }) => {
             return
         }
 
-        const publicKey = currentUser.razorpayId || ''
+        const publicKey = currentUser.razorpayId ||process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || ''
         if (!publicKey) {
             console.error('Razorpay public key missing (NEXT_PUBLIC_RAZORPAY_KEY_ID).')
             alert('Payment configuration error: payment key missing.')
